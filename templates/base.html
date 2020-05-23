@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  {% comment %} <title>Kibiki Shop</title> {% endcomment %}
+  <title>{% block head_title %}{% endblock %}</title>
+  {% block extra_head %}
+  {% endblock %}
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/myfooter.css' %}" rel="stylesheet">
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %} " rel="stylesheet">
+  <link href="{% static 'css/mdb.css' %} " rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .carousel {
+      height: 50vh;
+    }
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+    
+
+  </style>
+
+</head>
+
+
+
+<body style="background-color:  #f0f3f4   ">
+
+  <!-- Navbar -->
+  {% load cart_template_tags %}
+
+  <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="{% url 'ecommerceapp:home' %}">
+        <strong class="blue-text">mamazon.com</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          
+          
+        </ul>
+
+        <!-- Right -->
+        <!-- nav-flex-icons -->
+
+        <ul class="navbar-nav nav-flex-icons float-right">
+        {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'ecommerceapp:order-summary' %}" class="nav-link waves-effect">
+              <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
+              
+              <span class="clearfix d-none d-sm-inline-block"> Logout </span>
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+              
+              <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
+              
+              <span class="clearfix d-none d-sm-inline-block"> Signup </span>
+            </a>
+          </li>
+          {% endif %}
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link border border-light rounded waves-effect"
+              >
+              <i class="fa fa-user mr-2"></i>{{ user.username }}
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+  <div class="mt-5 pt-4">
+  {% if messages %}
+  
+      {% for message in messages %}
+      
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      {% endfor %}
+
+  {% endif %}
+  </div>
+
+  {% block content %}
+  {% endblock content %}
+  {% block extra_scripts %}
+  {% endblock extra_scripts %}
+
+  
+
+
+  <!-- {% block extra %}
+  {% endblock extra %}  -->
+  {% block extra_body %}
+  {% endblock %}
+ 
+
+
+
+  <!--Footer-->
+<footer id="footer" class="footer-1 wow fadeIn">
+      <div class="main-footer widgets-dark typo-light">
+      <div class="container">
+      <div class="row">
+        
+      <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="widget subscribe no-box">
+      <h5 class="widget-title">ABOUT MAMAZON<span></span></h5>
+      <p align=”justify”>An e-commerce corporation based in Kinondoni, Dar es Salaam, that facilitates business-to-consumer sales through its website. </p>
+      </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="widget no-box">
+      <h5 class="widget-title">QUICK LINKS<span></span></h5>
+      <ul class="thumbnail-widget">
+      <li>
+      <div class="thumb-content"><a href="{% url 'ecommerceapp:request-refund' %}">Request a refund</a></div> 
+      </li>
+      <li>
+        {% if request.user.is_authenticated %}
+         <div class="thumb-content"><a href="{% url 'ecommerceapp:order-summary' %}">My Cart</a></div>
+         {% endif %}
+
+      </li>
+      <li>
+        <div class="thumb-content"><a href="http://philipokibikiportfolio.pythonanywhere.com/">Developer</a></div> 
+      </li>
+      </ul>
+      </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="widget no-box">
+      <h5 class="widget-title">HOW DO I BUY AN ITEM?<span></span></h5>
+      <p align=”justify”>You can click on any of the item to add it to the cart.You can can either delete the item,increase the quantity of the item or reduce the quantity from the cart.Proceeding to checkout is only when you have an item to the cart else ,continue to shop</p>
+
+      </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3">
+
+      <div class="widget no-box">
+      <h5 class="widget-title">CONTACT DETAILS<span></span></h5>
+      <ul>
+        <li>Mamazon Tanzania</li>
+        <li>Kinondoni Road</li>
+        <li>P.O. Box XXXX</li>
+        <li>Dar es Salaam</li>
+        <li><p><a href="mailto:info@domain.com" title="glorythemes">philipthomas1738@gmail.com</a></p></li>
+      </ul>
+
+
+      </div>
+      </div>
+
+      </div>
+      </div>
+      </div>
+        
+      <div class="footer-copyright">
+      <div class="container">
+      <div class="row">
+      <div class="col-md-12 text-center">
+      <p>Designed and developed by <a href="http://philipokibikiportfolio.pythonanywhere.com/" > Philipo Thomas Kibiki.</a></p>
+
+      <p>Copyright mamazon © {%now "Y"%}. All rights reserved.</p>
+      </div>
+      </div>
+      </div>
+      </div>
+</footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/myjs.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+  
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+  </script>
+  {% block scripts %}
+  {% endblock scripts %}
+
+</body>
+
+</html>
+
+
+
+
+
+

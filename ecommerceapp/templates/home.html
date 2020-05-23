@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <!--Carousel Wrapper-->
+  <div id="carousel-example-1z" class="carousel slide carousel-fade pt-4" data-ride="carousel" >
+
+   
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox" >
+
+      <!--First slide-->
+      <div class="carousel-item active">
+        <div class="view" style="background-image: url('https://image.freepik.com/free-photo/product-package-boxes-shopping-bag-cart-with-laptop-online-shopping-delivery-concept_38716-138.jpg'); background-repeat: no-repeat; background-size: cover;text-align: left;">
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="white-text mx-5 wow fadeIn" style="text-align: left;">
+
+
+              <h1 class="mb-4 d-none d-md-block" style="text-align: left;">
+                <strong>Spend a little<br>
+                  choose from millions
+                </b></strong>
+              </h1>
+
+
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+      <!--/First slide-->
+
+      <!--Second slide-->
+      <div class="carousel-item">
+        <div class="view" style="background-image: url('https://image.freepik.com/free-photo/woman-holding-credit-card-front-laptop-with-shopping-website_23-2148101665.jpg'); background-repeat: no-repeat; background-size: cover;">
+          
+
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="white-text mx-5 wow fadeIn">
+              <h1 class="mb-4">
+                <strong>The best Online Shopping<br>
+                  you can trust
+                </strong>
+              </h1>
+
+                         
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+      <!--/Second slide-->
+
+      <!--Third slide-->
+      <div class="carousel-item">
+        <div class="view" style="background-image: url('https://www.incimages.com/uploaded_files/image/970x450/forklift-boxes-pan_13848.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+          <!-- Mask & flexbox options-->
+          <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
+
+            <!-- Content -->
+            <div class="white-text mx-5 wow fadeIn">
+              <h1 class="mb-4">
+                <strong>We deliver quality products<br>
+                   for your money<br>
+                  
+                </strong>
+              </h1>
+
+              
+            </div>
+            <!-- Content -->
+
+          </div>
+          <!-- Mask & flexbox options-->
+
+        </div>
+      </div>
+      <!--/Third slide-->
+
+    </div>
+    <!--/.Slides-->
+
+
+
+  </div>
+  <!--/.Carousel Wrapper-->
+
+  <!--Main layout-->
+  <main>
+    <div class="container">
+
+ 
+
+      <!--Section: Products v.3-->
+      <section class="text-center mb-4" style="margin-top: 30px;">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+        {% for item in object_list %}
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+              <!--Card image-->
+              <div class="view overlay">
+
+                  <img src="{{ item.image.url }}" class="card-img-top"
+                  alt="">
+                  
+                <a href="{{ item.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+              <!--Card image-->
+
+              <!--Card content-->
+              <div class="card-body text-center">
+                <!--Category & Title-->
+                <a href="" class="grey-text">
+                  <h5>{{ item.get_category_display }}</h5>
+                </a>
+                <h5>
+                  <strong>
+                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+                      <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
+                    </a>
+                  </strong>
+                </h5>
+
+                <h4 class="font-weight-bold blue-text">
+                  <strong>TSH
+                  {% if item.discountprice %}
+                  {{ item.discountprice }}
+                  
+                  {% else %}
+                  {{ item.price }}
+                  {% endif %}
+                  </strong>
+                </h4>
+
+              </div>
+              <!--Card content-->
+
+            </div>
+            <!--Card-->
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          
+          {% endfor %}
+
+        </div>
+        <!--Grid row-->
+
+      </section>
+      <!--Section: Products v.3-->
+
+      <!--Pagination-->
+      {% if is_paginated %}
+      <nav class="d-flex justify-content-center wow fadeIn">
+        <ul class="pagination pg-blue">
+        {% if page_obj.has_previous %}
+
+          <!--Arrow left-->
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+        {% endif %}  
+
+          <li class="page-item active">
+            <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          
+          {% if page_obj.has_next %}
+
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+      <!--Pagination-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+{% endblock content %}

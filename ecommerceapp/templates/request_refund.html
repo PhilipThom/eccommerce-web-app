@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+  <!--Main layout-->
+  <main>
+    <div class="container1">
+      
+      <!-- <div class="table-responsive text-nowrap"> -->
+        <!-- <div class="mycustom"> -->
+      
+       <form class="mycustom" method="POST" >
+        <h1><strong><b>Request Refund</b></strong></h1>
+         {% csrf_token %}
+         {{ form|crispy }}
+          
+         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" placeholder=""/>
+         
+         <button class="btn btn-dark" type="submit">Submit Request</button>
+
+       </form>
+
+  
+     <!--  </div> -->
+
+
+      
+
+      
+
+    </div>
+  </main>
+  <!--Main layout-->
+{% endblock content %}

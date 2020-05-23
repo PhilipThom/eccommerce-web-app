@@ -1,0 +1,241 @@
+.view,body,html{height:100%}.carousel{height:50%}.carousel .carousel-inner,.carousel .carousel-inner .active,.carousel .carousel-inner .carousel-item{height:100%;text-align: left;}@media (max-width:776px){.carousel{height:100%}}.page-footer{background-color:#929FBA}
+/*.container1 {
+  width: 800px;
+  padding: 8% 0 0;
+  margin: auto;
+  
+
+}*/
+.container1:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.login{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 460px;
+  margin: 0 auto 100px;
+ /* padding: 8% 45px;*/
+
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+.asteriskField {
+    display: none;
+}
+.login label{
+    display: none;
+}
+.login input{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.login button{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.login h1{
+  font-size: 19px;
+}
+}
+.message{
+  /*margin: 15px 0 0;*/
+  /*color: #b3b3b3;*/
+  font-size: 15px;
+}
+.logout{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+.logout button{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.cotainerlogout{
+
+  width: 800px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.cotainerlogout h1{
+
+   font-size: 19px;
+}
+
+
+
+
+
+
+
+.container1:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.signup{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 460px;
+  margin: 0 auto 100px;
+ /* padding: 8% 45px;*/
+
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+.asteriskField {
+    display: none;
+}
+.signup label{
+    display: none;
+}
+.signup input{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.signup button{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.signup h1{
+  font-size: 19px;
+}
+}
+.message{
+  /*margin: 15px 0 0;*/
+  /*color: #b3b3b3;*/
+  font-size: 15px;
+}
+
+
+
+
+
+
+
+.container1:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mycustom{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 460px;
+  margin: 0 auto 100px;
+ /* padding: 8% 45px;*/
+
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+.asteriskField {
+    display: none;
+}
+.mycustom label{
+    display: none;
+}
+.mycustom input{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.mycustom button{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.mycustom h1{
+  font-size: 19px;
+}
+}
+.message{
+  /*margin: 15px 0 0;*/
+  /*color: #b3b3b3;*/
+  font-size: 15px;
+}
+
+.mycustom textarea{
+
+  background: #f2f2f2;
+  
+} 
+
+
+
+	  
